@@ -1,0 +1,69 @@
+<div class="container">
+  <br>
+  <p><strong>같이먹기</strong></p><hr>
+  
+    <table class="table">
+      <thead> 
+        <tr>
+          <th scope="col" width="20%">종류</th>
+          <th scope="col">작성자</th>
+          <th scope="col">마감기한</th>
+          <th scope="col">모집인원</th>
+          <th scope="col">가격</th>
+          <th scope="col">연락방법</th>
+          <th scope="col">완료여부</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @with.each do |w| %>
+          <% if w.done == "x" %>
+            <tr>
+              <td><a href="/with/show/<%= w.id %>"><strong><%= w.item %></strong></a></td>
+              <td><a><strong><%= w.user.username %></strong></a></td>
+              <td><a><strong><%= w.deadline %> <%= w.deadlineH %>:<%= w.deadlineM %></strong></a></td>
+              <td><a><strong><%= w.num %></strong></a></td>
+              <td><a><strong><%= w.price %></strong></a></td>
+              <td><a><strong><%= w.contact %></strong></a></td>
+              <td><a><strong><%= w.done %></strong></a></td>
+            </tr>
+          <% end %>
+          
+        <% end %>
+        <% @with.each do |w| %>
+          
+          <% if w.done == "o" %>
+            <tr>
+              <td><a href="/with/show/<%= w.id %>"><%= w.item %></a></td>
+              <td><a><%= w.user.username %></a></td>
+              <td><a><%= w.deadline %> <%= w.deadlineH %>:<%= w.deadlineM %></a></td>
+              <td><a><%= w.num %></a></td>
+              <td><a><%= w.price %></a></td>
+              <td><a><%= w.contact %></a></td>
+              <td><a><%= w.done %></a></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+
+    </table>
+    
+    <!--검색할 수 있게 한다-->
+    <div style="text-align:center;">
+      <form class="form-inline my-2 my-lg-0" action="/with/find" method="get">
+          <div class="form-group">
+            <select name="cate" id="exampleFormControlSelect1">
+              <option value="1">제목</option>
+              <option value="2">내용</option>
+              <option value="3">제목+내용</option>
+              <option value="4">작성자</option>
+            </select>
+          </div>
+        <input name="q" class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="Search">
+        <button type="submit">검색</button>
+      </form>
+    </div>
+    
+    <div style="text-align:right;"><a href="/with/new"><button type="button" class="btn btn-outline-dark">글쓰기</button></a></div>
+
+</div>

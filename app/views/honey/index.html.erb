@@ -1,0 +1,28 @@
+<br>
+<div class="container aaaContainer">
+    <br>
+    <p><strong>꿀템모음</strong></p><hr>
+    <div id="honey-columns">
+    <% @honey.each do |h| %>
+        <figure>
+        <h5><%= image_tag h.image %></h5>
+            <figcaption>
+                <%=h.item%></br>
+                <% unless current_user == nil? %>
+                    <% if current_user.is_like?(h) %>
+                        <button><a href="/likes/likes_toggle/<%=h.id%>" style="font-size: 30px; color:red;">❤</a></button>
+                        <!--<#%= link_to "좋아요 취소", likes_likes_toggle_path(@post), method: "post" %>-->
+                    <% else %>
+                        <button><a href="/likes/likes_toggle/<%=h.id%>" style="font-size: 30px; color:gray;">♡</a></button>
+                        <!--<#%= link_to "좋아요", likes_likes_toggle_path(@post), method: "post" %>-->
+                    <% end %>
+                <% end %>
+                 <strong>+<%=h.liked_users.size%></strong>
+            </figcaption>
+        </figure>
+     <% end %>
+    </div>
+        
+   <!--좋아요-->     
+     
+   

@@ -1,0 +1,55 @@
+<div class="container">
+    <br></br>
+    <p><strong>나눔장터</strong></p>
+    <h1><%=@market.item%></h1><hr/>
+    <div style="text-align:right;">
+        <!--to_s:문자열로 변환,+기준으로 나눠서,첫번쨰-->
+        <div><%=@market.created_at.to_s.split("+").first%>, <%=time_ago_in_words(@market.created_at)%> ago</div> 
+        <div>User name : <%=@market.user.username%></div>
+        <a href="/market/edit/<%=@market.id%>">수정</a>
+        <a href="/market/destroy/<%=@market.id%>">삭제</a>
+    </div>
+    
+     <div class="ContentS">
+        <div id="first">
+                <% unless @market.image.nil? %>
+                <%= image_tag @market.image, width: "300" %><br><br><br> 
+            <% end %>
+        </div>
+        <div>
+            <br><br>
+            <p>올린날짜: <%= @market.created_at.to_s.split(" ").first %></p>
+            <p>가격 : <%=@market.unit%>개당 <%=@market.price%></p>
+            <p>완료여부 : <%= @market.done%></p>  <br><br>
+        </div>
+    </div>
+    
+    <br><p><strong>상세설명</strong></p><hr>
+    <p><%= simple_format(@market.content) %></p>
+    <br>
+  
+  <!--댓글--> 
+  <p><strong>댓글</strong></p><hr>
+    <%@market.marketres.each do |r| %>
+        <%= r.user.username %> : <%=r.content%>
+        <a href="/reply/destroy/<#%=r.id%>"><span class="badge badge-pill badge-danger">삭제</span></a>
+        <br>
+    <%end%>
+    
+    
+    <form action="/reply/create" method="post">
+        <input name="post_id" value="<#%=@market.id%>" hidden="true">
+        <div class="row">
+          <textarea name="content" class="form-control col-11" id="exampleFormControlTextarea1" rows="3"  placeholder="댓글작성"></textarea>
+          <button type="submit" class="btn btn-dark">댓글 작성</button>
+        </div>
+        
+    </form>    
+    
+    <br></br>
+    <div style="text-align:right;">
+        <a href="/market/index"><button type="button" class="btn btn-dark">목록</button></a>
+    </div>
+    
+    <br><br>
+</div>

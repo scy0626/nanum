@@ -1,0 +1,81 @@
+<div class="container">
+    
+    <br></br>
+    <p><strong>같이먹기</strong></p>
+    
+    <h1><strong><%= @with.item %></strong></h1><hr>
+    
+    <div style="text-align:right;">
+        <!--로그인 확인 -->
+        <%if current_user != nil%>
+            <%if @with.user.email == current_user.email %>
+                 <a href="/with/edit/<%= @with.id %>"><span class="badge badge-light">수정</span></a>
+                 <a href="/with/destroy/<%= @with.id %>"><span class="badge badge-dark">삭제</span></a>
+            <% end %>
+        <% end %>
+    </div><hr>
+    
+    
+
+    <div class="ContentS">
+        <div id="first">
+                <% unless @with.image.nil? %>
+                <%= image_tag @with.image %><br><br><br> 
+            <% end %>
+        </div>
+        <div>
+            <br><br>
+            <p>올린날짜: <%= @with.created_at.to_s.split(" ").first %></p>
+            <p>마감기한: <%= @with.deadline %> <%= @with.deadlineH %>시<%= @with.deadlineM %>분</p>
+            <p>모집인원: <%= @with.num %>명</p>
+            <p>가격: <%= @with.price %></p>
+            <p>완료여부: <%= @with.done %></p>
+            <br><br>
+        </div>
+    </div>
+    
+    <br><p><strong>상세설명</strong></p><hr>
+    <p><%= simple_format(@with.content) %></p>
+    <br>
+    
+    <p><strong>연락방법</strong></p><hr>
+    <p><%= @with.contact %> > <%= @with.contactID %></p>
+    <br>
+   
+    
+    <!--댓글 보여주기-->
+    <p><strong>댓글</strong></p><hr>
+    <% @with.withres.each do |r| %>
+        <%=r.user.username%>: <%= r.content %> (<%= r.created_at.to_s.split(":").first %>:<%= r.created_at.to_s.split(":").second %>)
+        <a href="/withre/destroy/<%= r.id %>"><span class="badge badge-warning">삭제</span></a>
+        <br>
+    <% end %>
+    <br>
+    
+    <!--댓글 달기-->
+    <form action="/withre/create" method="post">
+        <input name="with_id" value="<%= @with.id %>" hidden="true"></input>
+        <div class="row">
+            <textarea name="content" class="form-control col-11" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button type="submit" class="btn btn-outline-dark col-1">작성</button>
+        </div>
+    </form>
+    
+    <br><br>
+    <div style="text-align:right;"><a href="/with/index"><button type="button" class="btn btn-outline-dark col-1">목록</button></a></div>
+    <br><br>
+    
+
+    
+</div>
+<style>
+    .ContentS{
+        display:flex;
+        flex-direction:row;
+        width:100%;
+    }
+    .ContentS div{
+        width:50%;
+    }
+
+</style>

@@ -1,0 +1,83 @@
+<div class="container">
+  <br></br>
+  <form action="/with/update/<%= @with.id %>" method="post">
+    
+    <!-- 음식 종류 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">종류</label>
+      <input name="input_item" value="<%= @with.item %>" type="text" class="form-control" id="exampleFormControlInput1" placeholder="뭐 시켜 먹을까?!">
+    </div>
+    
+    <!-- 상세 내용 -->
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">내용</label>
+      <textarea name="input_content" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="하고 싶은 말"><%= @with.content %></textarea>
+    </div>
+    
+    <!-- 마감 기한 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">마감기한</label></label>
+      <select name="input_deadline" value="<%= @with.deadline %>" class="form-control form-control-sm">
+        <option>오전</option>
+        <option>오후</option>
+      </select>
+      <select name="input_deadlineH" value="<%= @with.deadlineH %>" class="form-control form-control-sm">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      <select name="input_deadlineM" value="<%= @with.deadlineM %>" class="form-control form-control-sm">
+        <option>00</option>
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
+    </div>
+    
+    <!-- 모집 인원 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">모집인원</label></label>
+      <select name="input_num" value=<%= @with.num %> class="form-control form-control-sm">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+      </select>
+    </div>
+    
+    <!-- 1인당 가격 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">가격</label></label>
+      <input name="input_price" value=<%= @with.price%> type="text" class="form-control" id="exampleFormControlInput1" placeholder="예) 30000원">
+    </div>
+    
+    <!-- 모집 완료 여부 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">완료여부</label></label>
+      <select name="input_done" value=<%= @with.done%> class="form-control form-control-sm">
+          <option>o</option>
+          <option>x</option>
+      </select>
+    </div>
+    
+    
+    <div style="text-align:right;"><button type="submit" class="btn btn-outline-dark">수정</button></div>
+    <br><br>
+    
+  </form>
+</div>

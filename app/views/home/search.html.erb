@@ -1,0 +1,28 @@
+<div class="container">
+  <br>
+  <p><strong>검색결과</strong></p><hr>
+  
+    <table class="table">
+      <thead> 
+        <tr>
+          <th scope="col">제목</th>
+          <th scope="col">작성자</th>
+          <th scope="col">등록일</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @post.each do |p| %>
+            <tr>
+              <td><a href="/<%=p.class.name.downcase%>/show/<%=p.id%>"><%= p.item %></a></td>
+                
+              <td><a ><%=p.user.username%></a></td>
+              <td><a ><%= p.created_at.to_s.split(":").first %>:<%=p.created_at.to_s.split(":").second %></a></td>
+            </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+    
+
+</div>

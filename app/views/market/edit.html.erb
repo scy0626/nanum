@@ -1,0 +1,42 @@
+<div class="container">
+    <form action = "/market/update/<%=@market.id%>" method="post" enctype="multipart/form-data">
+      <!-- 물품명 -->
+      <div class="form-group">
+        <label for="exampleFormControlInput1">물품명</label></label>
+        <input name="input_item" type="text" value="<%=@market.item%>" class="form-control" id="exampleFormControlInput1" placeholder="물품명">
+      </div>
+      
+    <div class="form-group">
+    
+    <!-- 판매단위 -->
+      <label for="exampleFormControlInput1">판매단위</label></label>
+      <input name="input_unit" type="text" class="form-control" value="<%=@market.unit%>" id="exampleFormControlInput1" placeholder="예) 2개 or 1kg">
+    </div>
+    
+    <!-- 판매가격 가격 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">판매가격</label></label>
+      <input name="input_price" type="text" class="form-control" value="<%=@market.price%>" id="exampleFormControlInput1" placeholder="예) 30000원">
+    </div>
+    
+    <!-- 상세내용 -->
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">내용</label>
+        <textarea name="input_content" class="form-control" id="exampleFormControlTextarea1" rows="5"  placeholder="상세내용"><%=@market.content%></textarea>
+      </div>
+     
+    <!-- 모집 완료 여부 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">모집 완료 여부</label></label>
+      <select name="input_done" class="form-control form-control-sm">
+          <option>X</option>
+          <option>O</option>
+      </select>
+    </div>
+
+        <button type="submit" class="btn btn-dark">저장</button>
+        
+    
+    </form>
+
+</div>

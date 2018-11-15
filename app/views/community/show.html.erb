@@ -1,0 +1,49 @@
+<div class="container">
+    
+    <br></br>
+    <p><strong>커뮤니티 - <%= @community.head %></strong></p>
+    
+    <h1><%= @community.item %></h1><hr>
+    
+    <div style="text-align:right;">
+        
+            <%=@community.user.username%> 
+            (<%= time_ago_in_words(@community.created_at) %> ago)
+        
+        <%if current_user != nil%>
+            <%if @community.user.email == current_user.email %>
+                <a href="/community/edit/<%= @community.id %>"><span class="badge badge-light">수정</span></a>
+                <a href="/community/destroy/<%= @community.id %>"><span class="badge badge-dark">삭제</span></a>
+            <%end%>
+        <% end %>
+    </div><hr>
+    
+    <p><%= simple_format(@community.content) %></p><br>
+    
+    <br></br>
+    
+ 
+    <!--댓글 보여주기-->
+    <p><strong>댓글</strong></p><hr>
+    <% @community.communityres.each do |r| %>
+        <%= r.user.username%>: <%= r.content %> (<%= r.created_at.to_s.split(":").first %>:<%= r.created_at.to_s.split(":").second %>)
+        <a href="/communityre/destroy/<%= r.id %>"><span class="badge badge-warning">삭제</span></a>
+        <br>
+    <% end %>
+    <br>
+    
+    <!--댓글 달기-->
+    
+    <form action="/communityre/create" method="post">
+        <input name="community_id" value="<%= @community.id %>" hidden="true"></input>
+        <div class="row">
+            <textarea name="content" class="form-control col-11" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button type="submit" class="btn btn-outline-dark col-1">작성</button>
+        </div>
+    </form>
+    
+    <br></br>
+    <div style="text-align:right;"><a href="/community/index"><button type="button" class="btn btn-dark">목록</button></a></div>
+
+    
+</div>

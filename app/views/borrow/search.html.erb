@@ -1,0 +1,55 @@
+<div class="container aaaContainer">
+  <br>
+  <p><strong>빌려주기</strong></p><hr>
+  
+  <% @borrow.each do |b| %>
+      <div class="flex-figure">
+        <figure>
+            <figcaption>
+                <% unless b.image.nil? %>
+                  <%= image_tag b.image %> 
+                <% end %>
+          
+                <div class="cow-txt">
+                    <div class="cow-title"><a href="/borrow/show/<%= b.id %>"><%= b.item %></a></div>
+                    <div class="cow-info">
+                        대여기간 : <%= b.period %><br/>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> 장소<br>
+                        <%= b.price %>
+                    </div>
+                    
+                </div>
+             
+            </figcaption>
+        </figure>
+        
+        <div class="Flex-bottom">
+            <div class="Flex-center">
+                <div class="cow-button">
+                            
+                    <button type="button" class="btn btn-warning">
+                        <a href="/borrow/show/<%= b.id %>"><strong><%= b.done %></strong></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </div>
+  <% end %>
+  
+  <!--검색할 수 있게 한다-->
+    <div style="text-align:center;">
+      <form class="form-inline my-2 my-lg-0" action="/borrow/find" method="get">
+          <div class="form-group">
+            <select name="cate" id="exampleFormControlSelect1">
+              <option value="1">제목</option>
+              <option value="2">내용</option>
+              <option value="3">제목+내용</option>
+              <option value="4">작성자</option>
+            </select>
+          </div>
+        <input name="q" class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="Search">
+        <button type="submit">검색</button>
+      </form>
+    </div>
+
+</div>

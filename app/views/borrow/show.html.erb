@@ -1,0 +1,51 @@
+<div class="container">
+    <br></br>
+    <p><strong>같이먹기</strong></p>
+    <h1><%= @borrow.item %></h1><hr /> <!-- 제목 출력 -->
+    
+    <div style="text-align:right;"> <!-- 작성자 수정 삭제 만들기 -->
+        <div>
+            <%= @borrow.user.email%>
+            (<%= time_ago_in_words(@borrow.created_at) %> ago)
+        </div>
+        
+        <%if current_user != nil%>
+            <%if @borrow.user.email == current_user.email %>
+                <a href="/borrow/edit/<%= @borrow.id %>">
+                    <span class="badge badge-light">수정</span>
+                </a>
+                <a href="/borrow/destroy/<%= @borrow.id %>">
+                    <span class="badge badge-dark">삭제</span>
+                </a>
+            <%end%>
+        <% end %>
+    </div><br>
+
+    <p><%= simple_format(@borrow.content) %></p><br> <!-- 내용 출력 -->
+    
+    <% unless @borrow.image.nil? %>
+        <%= image_tag @borrow.image %><br><br><br> <!-- 사진 출력 -->
+    <% end %>
+    
+    <!--댓글 보여주기-->
+    <p><strong>댓글</strong></p><hr>
+    <% @borrow.borrowres.each do |r| %>
+        <%=r.user.email%>: <%= r.content %> (<%= r.created_at.to_s.split("+").first %>)
+        <a href="/borrowre/destroy/<%= r.id %>"><span class="badge badge-warning">삭제</span></a>
+        <br>
+    <% end %>
+    <br>
+    
+    <!--댓글 달기-->
+    <form action="/borrowre/create" method="post">
+        <input name="borrow_id" value="<%= @borrow.id %>" hidden="true"></input>
+        <div class="row">
+            <textarea name="content" class="form-control col-11" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button type="submit" class="btn btn-dark col-1">작성</button>
+        </div>
+    </form>
+    <br><br>
+    <div style="text-align:right;"><a href="/borrow/index"><button type="button" class="btn btn-dark">목록</button></a></div>
+    <br><br>
+    
+</div>

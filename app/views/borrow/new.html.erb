@@ -1,0 +1,47 @@
+<div class="container">
+  <form action="/borrow/create" method="post" enctype="multipart/form-data"> 
+    
+    <div class="form-group">
+      <label for="exampleFormControlInput1">종류</label></label>
+      <input name="input_item" type="text" class="form-control" id="exampleFormControlInput1" placeholder="빌려줄 것 ">
+    </div>
+    
+     <input name="image" type = "file">
+    
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">내용</label>
+      <textarea name = "input_content" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="하고 싶은 말"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleFormControlInput1">대여기간</label></label>
+      <input name="input_period" type="text" class="form-control" id="exampleFormControlInput1" placeholder="예) 3일">
+    </div>
+    
+     <div class="form-group">
+      <label for="exampleFormControlInput1">대여가격</label></label>
+      <input name="input_price" type="text" class="form-control" id="exampleFormControlInput1" placeholder="예) 300원">
+    </div>
+    <!-- 연락 방법 -->
+    <div class="form-group">
+      <label for = "exampleFormControlInput1">연락 방법</label>
+      <select name="input_contact" class="form-control form-control-sm">
+        <option>카톡(개인톡/오픈채팅)</option>
+        <option>문자/전화</option>
+        <option>페메</option>
+      </select>
+      <input name="input_contactID" type="text" class="form-control" id="exampleFormControlInput1" placeholder="카톡아이디(오픈채팅방 링크) / 전화번호 / 페이스북아이디">
+    </div>
+    
+    <!-- 모집 완료 여부 -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">모집 완료 여부</label></label>
+      <select name="input_done" class="form-control form-control-sm">
+          <option>X</option>
+          <option>O</option>
+      </select>
+    </div>
+    
+    <div style="text-align:right;"><button type="submit" class="btn btn-outline-dark">작성</button></div>
+  </form>
+</div>

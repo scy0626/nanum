@@ -1,0 +1,44 @@
+<div class="container">
+  <br>
+  <div style="text-align:right;">
+    <form action="/community/search">
+      <select name = "search_head">
+        <option>전체보기</option>
+        <option>후기</option>
+        <option>할인정보</option>
+        <option>꿀팁공유</option>
+        <option>같이의가치</option>
+      </select>
+      <button type="submit">검색</button>
+    </div>
+  </form>
+  <br>
+  
+    <table class="table">
+      <thead> 
+        <tr>
+          <th scope="col">말머리</th>
+          <th scope="col">제목</th>
+          <th scope="col">작성자</th>
+          <th scope="col">등록일</th>
+          <th scope="col">댓글</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @community.each do |c| %>
+            <tr>
+              <td><a href="/community/show/<%= c.id %>"><%= c.head %></a></td>
+              <td><a href="/community/show/<%= c.id %>"><%= c.title %></a></td>
+              <td><a href="/community/show/<%= c.id %>"><%=c.user.email%></a></td>
+              <td><a href="/community/show/<%= c.id %>"><%= c.created_at.to_s.split("+").first %></a></td>
+              <td scope="col">nnn</td>
+            </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+    
+    <div style="text-align:right;"><a href="/community/new"><button type="button" class="btn btn-outline-dark">글쓰기</button></a></div>
+
+</div>

@@ -1,0 +1,189 @@
+
+
+	<!-- Scroll to top button -->
+	<div class="scrolltotop">
+		<a class="button-circle button-circle-sm button-circle-dark" href="#"><i class="ti-arrow-up"></i></a>
+	</div>
+	<!-- end Scroll to top button -->
+
+	<!-- Fullscreen Search Form -->
+	<div class="search-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+					<form class="form-style-5" action="/home/search" method="get" >
+						<input class="font-large" type="text" placeholder="Search.." name="q" required>
+						<button><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</div>
+	<!-- end Fullscreen Search Form -->
+
+	<!-- Home section -->
+	<div class="owl-carousel owl-nav-overlay owl-dots-overlay" data-owl-items="1" data-owl-nav="true" data-owl-autoplay="true">
+		<!-- Slider box 1 -->
+		<div class="bg-image" style="background-image: url(/images/background.png)">
+			<div class="section-lg">
+				<div class="container">
+					<h1></h1>
+					<a class="button button-xl button-fill-left-outline-white margin-top-20" href="#"></a>
+				</div>
+			</div>
+		</div>
+		<!-- Slider box 2 -->
+		<div class="bg-image" style="background-image: url(/images/꿀꿀꿀꿀.png)">
+			<div class="section-lg ">
+				<div class="container">
+					<h1></h1>
+					<a class="button button-xl button-fill-left-outline-white margin-top-20" href="#"></a>
+				</div>
+			</div>
+		</div>
+	</div><!-- end owl-carousel -->
+	<!-- end Home section -->
+	
+	<!-- Products Slider -->
+	<div class="section">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>나눠먹기</h3><a href="/with/index"></a>
+			</div>
+			<div class="owl-carousel" data-owl-dots="false" data-owl-nav="true" data-owl-autoplay="true" data-owl-margin="30" data-owl-xs="1" data-owl-sm="2" data-owl-md="3" data-owl-lg="4" data-owl-xl="4">
+				<!-- Product Slider box 1 -->
+				<% @with.each do |w| %>
+				<div class="product">
+					<div class="product-img">
+							<%= image_tag w.image %>
+						<div class="product-img-hover">
+							<h6 class="heading-uppercase"><a href="/with/show/<%=w.id%>">보러가기</a></h6>
+						</div>
+					</div><!-- end product-img -->
+					<div class="product-info">
+						<h6><a href="#"><%=w.item%></a></h6>
+				
+						<div class="product-rating">
+							<%=w.user.username%>
+						</div>
+						
+						<div class="list-horizontal">
+							<h6><%=w.price%></h6>
+						</div>
+						
+						
+						<!-- Product Rating -->
+					
+					</div><!-- end product-info -->
+				</div>
+				<!-- Product Slider box 2 -->
+				<%end%>
+				
+			</div><!-- end owl-carousel -->
+		</div><!-- end container -->
+	</div>
+	<!-- end Products Slider -->
+		<!-- Products Slider -->
+	<div class="section no-padding-top">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>나눔장터</h3>
+			</div>
+			<div class="owl-carousel" data-owl-dots="false" data-owl-nav="true" data-owl-autoplay="true" data-owl-margin="30" data-owl-xs="1" data-owl-sm="2" data-owl-md="3" data-owl-lg="4" data-owl-xl="4">
+				<!-- Product Slider box 1 -->
+				<% @market.each do |m| %>
+				<div class="product">
+					<div class="product-img">
+							<%= image_tag m.image %>
+						<div class="product-img-hover">
+							<h6 class="heading-uppercase"><a href="/market/show/<%=m.id%>">보러가기</a></h6>
+						</div>
+					</div><!-- end product-img -->
+					<div class="product-info">
+						<h6><a href="#"><%=m.item%></a></h6>
+						<!-- Product Category -->
+						<div class="product-rating">
+							<%=m.user.username%>
+						</div>
+						
+						<div class="list-horizontal">
+							<h6><%=m.price%></h6>
+						</div>
+					
+					</div><!-- end product-info -->
+				</div>
+				<!-- Product Slider box 2 -->
+				<%end%>
+			
+			</div><!-- end owl-carousel -->
+		</div><!-- end container -->
+	</div>
+	<!-- end Products Slider -->
+		<!-- Products Slider -->
+	<div class="section no-padding-top">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>빌려쓰기</h3>
+			</div>
+			<div class="owl-carousel" data-owl-dots="false" data-owl-nav="true" data-owl-autoplay="true" data-owl-margin="30" data-owl-xs="1" data-owl-sm="2" data-owl-md="3" data-owl-lg="4" data-owl-xl="4">
+				<!-- Product Slider box 1 -->
+				<% @borrow.each do |b| %>
+				<div class="product">
+					<div class="product-img">
+							<%= image_tag b.image %>
+						<div class="product-img-hover">
+							<h6 class="heading-uppercase"><a href="/borrow/show/<%=b.id%>">보러가기</a></h6>
+						</div>
+					</div><!-- end product-img -->
+					<div class="product-info">
+						<h6><a href="#"><%=b.item%></a></h6>
+						
+						<div class="product-rating">
+							<%=b.user.username%>
+						</div>
+						
+						<div class="list-horizontal">
+							<h6><%=b.price%></h6>
+						</div>
+					
+					</div><!-- end product-info -->
+				</div>
+				<!-- Product Slider box 2 -->
+				<%end%>
+			</div><!-- end owl-carousel -->
+		</div><!-- end container -->
+	</div>
+	<!-- end Products Slider -->
+
+	<footer>
+		<div class="footer bg-dark-lighter">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-3">
+						<h3 class="no-margin">나눔</h3>
+					</div>
+					<div class="col-12 col-md-6 col-lg-3">
+						<h6 class="heading-uppercase">Contact Info</h6>
+						<ul class="list-unstyled">
+							<li>경북대학교, 멋쟁이사자처럼</li>
+							<li>nanum@likelion.org</li>
+							<li>+(053) 544 5454</li>
+						</ul>
+					</div>
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</div><!-- end footer -->
+		<div class="footer-bottom bg-dark">
+			<div class="container text-center">
+				<p>&copy; 2018 Nanum, jachiplatform.</p>
+			</div><!-- end container -->
+		</div><!-- end footer-bottom -->
+	</footer>
+</body>
+
+		
+
+		
+		
+			
+		

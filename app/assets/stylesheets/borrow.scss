@@ -1,0 +1,137 @@
+img{
+    height:400px;
+    width:300px;
+    // border-radius: 50%;
+}
+
+// .jumbotron {
+//     padding: 2rem 1rem;
+//     margin-bottom: 2rem;
+//     background-color: #ffc107 !important;
+//     border-radius: .3rem;
+// }
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+#cow-head{
+margin-top: 5px;
+font-family: 'Nanum Pen Script', cursive;
+font-size: 20px;
+margin-left: 40px;
+}
+
+.flex-container{
+display: flex;
+flex-direction: column;
+background-color: white;
+border: 1px solid red;
+}
+
+.flex-figure{
+display: flex;
+flex-direction: column;
+border: 1px solid rgba(0,0,1,0.2);
+box-shadow: 2px 2px 2px rgba(0,0,1,0.7);
+margin: 60px;
+background-color: white;
+margin-bottom:1rem;
+}
+
+figcaption img{
+float: left;
+}
+
+
+
+/*.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  border: 1px solid green;
+}*/
+figcaption >img{
+    width: auto; height: auto;
+    max-width: 200px; max-height: 200px;
+    border: 2px solid rgba(0,0,0,0.3);
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.cow-img{
+width: auto; height: auto;
+max-width: 200px; max-height: 200px;
+border: 2px solid rgba(0,0,0,0.3);
+margin-right: 10px;
+margin-top: 15px;
+margin-left: 20px;
+}
+
+.cow-txt{
+text-align: left;
+float: left;
+font-family: 'Nanum Pen Script', cursive;
+margin-left: 10px;
+}
+
+.cow-txt .cow-title{
+font-size: 35px;
+display: block;
+}
+
+.cow-txt .cow-info{
+font-size: 25px;
+line-height: 45px;
+color: rgba(0,0,0,0.7);
+}
+
+.cow-info img{
+margin-top: 15px;
+width: 10px;
+height: auto;
+}
+
+.place{
+  margin-left: 15px;
+}
+
+
+
+figcaption .cow-button{
+  text-align: left;
+  display: inline;
+  position: relative;
+  left: 650px;
+  top: 150px;
+  
+}
+
+figcaption .cow-price{
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 30px;
+  text-align: left;
+  display: inline;
+  position: relative;
+  left: 450px;
+  top: 157px;
+  
+}
+.Flex-center{
+  display: flex;
+  flex-direction:row;
+  justify-content:flex-end;
+}
+.Flex-bottom{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  margin-bottom:0.7rem;
+}
+
+button{
+  background-color: #ffc966;
+  padding: 7px;
+}
+

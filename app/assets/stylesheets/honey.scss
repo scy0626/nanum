@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+#honey-columns{
+    column-width: 350px;
+    column-gap: 15px;
+}
+
+figure{
+    background-color: white;
+}
+
+#honey-columns figure{
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#honey-columns figure img{
+    width:100%;
+}
+
+#honey-columns figure figcaption{
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding: 10px;
+    margin-top: 11px;
+    font-family: "Nanum Gothic", sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
