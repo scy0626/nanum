@@ -1,6 +1,8 @@
 # nanum
 [nanum](https://github.com/scy0626/nanum) 은 자취생들끼리 [나눔] 웹서비스를 통해 함께 나누며 부담을 덜어주기 위해 기획 및 제작 되었습니다.
 
+모델-뷰-컨트롤러(Model–View–Controller, MVC) 패턴으로 구현하였습니다.
+
 **/app/models** 과 **/app/controllers** 는 ruby 코드를 이용하여 작성 되었으며
 **/app/views** 는 html, css를 이용하여 작성 되었습니다.
 
